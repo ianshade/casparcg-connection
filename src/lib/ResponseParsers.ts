@@ -321,8 +321,9 @@ export namespace Response {
 			return data.map((i: string) => {
 				let components: RegExpMatchArray | null = i.match(/\"([\s\S]*)\" +([\s\S]*)/)
 
+				// is 2.2.0 content
 				if (components === null) {
-					return null
+					return i
 				}
 
 				let name: string = components[1].replace(/\\/g, '/')
